@@ -1,10 +1,5 @@
 const uuid = require('uuid/v4')
 
-export const setDefinitions = definitions => ({
-    type: 'SET_DEFINITIONS',
-    definitions
-})
-
 export const createCollection = (name, cardQuantities) => ({
     type: 'CREATE_COLLECTION',
     id: uuid(),
@@ -12,10 +7,14 @@ export const createCollection = (name, cardQuantities) => ({
     cardQuantities
 })
 
-export const createDeck = (name, identityCardCode, cardQuantities) => ({
+export const createDeck = (name, cardQuantities) => ({
     type: 'CREATE_DECK',
     id: uuid(),
     name,
-    identityCardCode,
     cardQuantities
+})
+
+export const importDeck = (url) => ({
+    type: 'IMPORT_DECK',
+    url
 })

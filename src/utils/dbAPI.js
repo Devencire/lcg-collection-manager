@@ -1,13 +1,14 @@
 import Immutable from 'immutable'
 
-const cardDefinitionsFromJSON = jsonString => {
+const definitionsFromJSON = jsonString => {
     const deserializedJSON = JSON.parse(jsonString)
+    const imageUrlTemplate = deserializedJSON.imageUrlTemplate
     const cardDefs = deserializedJSON.data
     var cardsMap = Immutable.Map()
     cardDefs.forEach(def => {
-        cardsMap = cardsMap.set(Number(def.code), Immutable.fromJS(def))
+        cardsMap = cardsMap.set(def.code, Immutable.fromJS(def))
     })
-    return cardsMap
+    return Immutable.Map({cards: cardsMap, imageUrlTemplate})
 }
 
-export { cardDefinitionsFromJSON }
+export { definitionsFromJSON }

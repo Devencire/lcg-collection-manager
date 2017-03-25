@@ -1,12 +1,12 @@
 import React from 'react'
 
-import InformedDeck from "../containers/InformedDeck"
+import Deck from "../components/Deck"
 
 const Decks = ({ decks, cardsets }) => {
     return (
         <ul>
             {decks.map(deckId =>
-                <InformedDeck
+                <Deck
                     key={deckId}
                     deck={cardsets.get(deckId)}/>
             )}

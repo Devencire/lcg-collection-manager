@@ -1,18 +1,34 @@
 import Immutable from 'immutable'
+import {
+    cardType, isRunnerCard, defaultRunnerIdentity, defaultCorpIdentity
+} from '../cards'
 
 const startState = Immutable.Map()
 
 const collection = ({name, cardQuantities}) => Immutable.Map({
     type: 'collection',
     name: name,
-    cardQuantities: Immutable.fromJS(cardQuantities)
+    cardQuantities: (
+        Immutable.fromJS(cardQuantities)
+        .map(quantity => Immutable.Map({'maximum': quantity, 'current': quantity}))
+    )
 })
 
-const deck = ({name, identityCardCode, cardQuantities}) => Immutable.Map({
+const pickIdentityFromCards = cardCodes => {
+    const identities = cardCodes.filter(code => cardType(code) === 'identity')
+    return identities[0] ? identities[0] : (
+        isRunnerCard(cardCodes[0]) ? defaultRunnerIdentity : defaultCorpIdentity
+    )
+}
+
+const deck = ({name, cardQuantities}) => Immutable.Map({
     type: 'deck',
     name: name,
-    identityCardCode: identityCardCode,
-    cardQuantities: Immutable.fromJS(cardQuantities)
+    identityCardCode: pickIdentityFromCards(Object.keys(cardQuantities)),
+    cardQuantities: (
+        Immutable.fromJS(cardQuantities)
+        .map(quantity => Immutable.Map({'maximum': quantity, 'current': 0}))
+    )
 })
 
 const cardsets = (state = startState, action) => {

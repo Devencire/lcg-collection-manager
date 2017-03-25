@@ -23,7 +23,7 @@ describe('sections reducer', () => {
                 id: "a_uuid",
                 name: "collection1",
                 cardQuantities: {
-                    1001: {maximum: 1, current: 1}
+                    "01001": {maximum: 1, current: 1}
                 }
             })
         ).toEqualImmutable(Immutable.fromJS({
@@ -41,7 +41,7 @@ describe('sections reducer', () => {
                 id: "b_uuid",
                 name: "collection1",
                 cardQuantities: {
-                    1001: {maximum: 1, current: 1}
+                    "01001": {maximum: 1, current: 1}
                 }
             })
         ).toEqualImmutable(Immutable.fromJS({
@@ -56,9 +56,9 @@ describe('sections reducer', () => {
                 type: "CREATE_DECK",
                 id: "a_uuid",
                 name: "deck1",
-                identityCardCode: 1001,
+                identityCardCode: "01001",
                 cardQuantities: {
-                    1001: {maximum: 1, current: 1}
+                    "01001": {maximum: 1, current: 1}
                 }
             })
         ).toEqualImmutable(Immutable.fromJS({
@@ -75,9 +75,9 @@ describe('sections reducer', () => {
                 type: "CREATE_DECK",
                 id: "b_uuid",
                 name: "deck1",
-                identityCardCode: 1001,
+                identityCardCode: "01001",
                 cardQuantities: {
-                    1001: {maximum: 1, current: 1}
+                    "01001": {maximum: 1, current: 1}
                 }
             })
         ).toEqualImmutable(Immutable.fromJS({

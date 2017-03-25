@@ -9,6 +9,7 @@
     "immutable": "^3.8.1",
     "immutable-json": "^2.0.0",
     "jest-immutable-matchers": "^1.4.0",
+    "json-data": "github:zaroth/netrunner-cards-json",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-immutable-proptypes": "^2.1.0",
@@ -16,10 +17,13 @@
     "reduce-reducers": "^0.1.2",
     "redux": "^3.6.0",
     "redux-immutable": "^3.0.11",
+    "redux-logger": "^2.8.1",
+    "redux-saga": "^0.14.3",
     "request": "^2.79.0",
     "uuid": "^3.0.1"
   },
   "scripts": {
+    "install": "node scripts/collateCardsFromPacks.js src/cards/collatedCards.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
