@@ -17,8 +17,8 @@ const Deck = ({ deck }) => {
             <ul>
                 {cardQuantities.map((quantities, cardCode) => (
                     <li key={cardCode}>
-                        {cardName(cardCode)}:
-                        {quantities.get('current')} / {quantities.get('maximum')}
+                        {quantities.get('current')}/{quantities.get('maximum')}
+                        &nbsp;{cardName(cardCode)}
                     </li>
                 )).valueSeq()}
             </ul>

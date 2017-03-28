@@ -7,6 +7,7 @@ import SuggestedRefinements from '../containers/SuggestedRefinements'
 
 const App = () => (
     <div>
+        <h1>GRNDL Refinery</h1>
         <ul>
             <li>
                 Collections
