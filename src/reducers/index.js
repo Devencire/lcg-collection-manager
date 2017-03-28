@@ -1,10 +1,14 @@
 import { combineReducers } from 'redux-immutable'
 import cardsets from './cardsets'
 import sections from './sections'
+import annotateWithRefinements from './refinements'
 
-const reducers = combineReducers({
-    cardsets,
-    sections
+const basicReducers = combineReducers({
+    cardsets, sections
 })
 
-export default reducers
+const reducer = (state, action) => annotateWithRefinements(
+    basicReducers(state, action)
+)
+
+export default reducer

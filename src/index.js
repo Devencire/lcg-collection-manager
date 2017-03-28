@@ -8,7 +8,6 @@ import { createCollection, createDeck } from './actions'
 import createLogger from 'redux-logger'
 import createSagaMiddleware from 'redux-saga'
 import sagas from './sagas'
-import request from 'request'
 import { cardsInPack } from './cards'
 
 const logger = createLogger({
@@ -21,7 +20,8 @@ const store = createStore(reducer, applyMiddleware(sagaMiddleware, logger))
 
 sagas.forEach(sagaMiddleware.run)
 
-store.dispatch(createCollection("First Collection", cardsInPack('core')))
+store.dispatch(createCollection("Core Set", cardsInPack('core')))
+store.dispatch(createCollection("Order and Chaos", cardsInPack('oac')))
 store.dispatch(createDeck("First Deck", {
     "01001": 1,
     "01002": 2

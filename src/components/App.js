@@ -3,6 +3,7 @@ import React from 'react';
 import CurrentCollections from '../containers/CurrentCollections'
 import { ActiveDecks, InactiveDecks } from '../containers/DeckContainers'
 import ImportDeck from '../containers/ImportDeck'
+import SuggestedRefinements from '../containers/SuggestedRefinements'
 
 const App = () => (
     <div>
@@ -18,6 +19,10 @@ const App = () => (
             <li>
                 Inactive Decks
                 <InactiveDecks />
+            </li>
+            <li>
+                Refinements
+                <SuggestedRefinements />
             </li>
         </ul>
         <ImportDeck />

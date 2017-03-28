@@ -7,7 +7,6 @@
   },
   "dependencies": {
     "immutable": "^3.8.1",
-    "immutable-json": "^2.0.0",
     "jest-immutable-matchers": "^1.4.0",
     "json-data": "github:zaroth/netrunner-cards-json",
     "react": "^15.4.2",
@@ -19,7 +18,6 @@
     "redux-immutable": "^3.0.11",
     "redux-logger": "^2.8.1",
     "redux-saga": "^0.14.3",
-    "request": "^2.79.0",
     "uuid": "^3.0.1"
   },
   "scripts": {
