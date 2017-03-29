@@ -8,8 +8,9 @@ const createDeckFromNRDBData = (data) => {
 
 const fetchDeckFromURL = (url) => {
     // just support NRDB for now
-    const deckId = url.split('/').slice(-1)[0]
-    const nrdbUrl = 'https://netrunnerdb.com/api/2.0/public/deck/' + deckId
+    const typeIdMatcher = /(deck\/|decklist\/).*?(\d+)/
+    const [_, type, deckId] = url.match(typeIdMatcher)
+    const nrdbUrl = 'https://netrunnerdb.com/api/2.0/public/' + type + deckId
     return fetch(nrdbUrl).then(response => {
         return response.json().then(jsonResponse =>
             createDeckFromNRDBData(jsonResponse.data[0])
@@ -28,7 +29,7 @@ function* importDeck(action) {
         const createAction = yield call(fetchDeckFromURL, action.url)
         yield put(createAction)
     } catch (e) {
-        yield put({type: "AWW", exception: e})
+        yield put({type: "IMPORT_DECK_FAILURE", exception: e})
     }
 }
 
