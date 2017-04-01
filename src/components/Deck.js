@@ -3,21 +3,18 @@ import CardImage from './CardImage'
 import { cardName } from '../cards'
 
 const Deck = ({ deck }) => {
-    const sumCardProperty = prop => (
-        deck.get("cardQuantities")
-        .reduce((total, quantities) => total + quantities.get(prop), 0)
-    )
-    const cardQuantities = deck.get("cardQuantities").sortBy((_, code) => code)
+    const sum = (a, b) => a + b
+    // const cardQuantities = deck.get("cardQuantities").sortBy((_, code) => code)
     return (
         <li>
             {deck.get("name")}
             [{cardName(deck.get("identityCardCode"))}]
-            ({sumCardProperty('current')} / {sumCardProperty('maximum')})
+            ({deck.get('contents').reduce(sum, 0)} / {deck.get('template').reduce(sum, 0)})
             <CardImage cardCode={deck.get("identityCardCode")}/>
             <ul>
-                {cardQuantities.map((quantities, cardCode) => (
+                {deck.get('template').map((required, cardCode) => (
                     <li key={cardCode}>
-                        {quantities.get('current')}/{quantities.get('maximum')}
+                        {deck.getIn(['contents', cardCode], 0)} / {required}
                         &nbsp;{cardName(cardCode)}
                     </li>
                 )).valueSeq()}

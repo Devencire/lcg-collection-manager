@@ -6,16 +6,8 @@ const mapStateToProps = sectionPrefix => state => ({
     cardsets: state.get("cardsets")
 })
 
-const mapDispatchToProps = ({})
+const ActiveDecks = connect(mapStateToProps("active"))(Decks)
 
-const ActiveDecks = connect(
-    mapStateToProps("active"),
-    mapDispatchToProps
-)(Decks)
-
-const InactiveDecks = connect(
-    mapStateToProps("inactive"),
-    mapDispatchToProps
-)(Decks)
+const InactiveDecks = connect(mapStateToProps("inactive"))(Decks)
 
 export { ActiveDecks, InactiveDecks }

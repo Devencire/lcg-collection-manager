@@ -18,17 +18,15 @@ describe('cardsets reducer', () => {
                 type: "CREATE_COLLECTION",
                 id: "a_uuid",
                 name: "collection1",
-                cardQuantities: {
-                    "01001": 1
-                }
+                cards: {"01001": 1}
             })
         ).toEqualImmutable(Immutable.fromJS({
             a_uuid: {
+                id: "a_uuid",
                 type: "collection",
                 name: "collection1",
-                cardQuantities: {
-                    "01001": {maximum: 1, current: 1}
-                }
+                template: {"01001": 1},
+                contents: {"01001": 1}
             }
         }))
     })
@@ -38,18 +36,16 @@ describe('cardsets reducer', () => {
                 type: "CREATE_DECK",
                 id: "a_uuid",
                 name: "deck1",
-                cardQuantities: {
-                    "01001": 1
-                }
+                cards: {"01001": 1}
             })
         ).toEqualImmutable(Immutable.fromJS({
             a_uuid: {
+                id: "a_uuid",
                 type: "deck",
                 name: "deck1",
                 identityCardCode: "01001",
-                cardQuantities: {
-                    "01001": {maximum: 1, current: 0}
-                }
+                template: {"01001": 1},
+                contents: {}
             }
         }))
     })
