@@ -8,7 +8,7 @@ const basicReducers = combineReducers({
 })
 
 const reducer = (state, action) => annotateWithRefinements(
-    basicReducers(state, action)
+    basicReducers(state ? state.delete('refinements') : state, action)
 )
 
 export default reducer
