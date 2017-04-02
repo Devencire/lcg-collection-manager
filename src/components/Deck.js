@@ -1,26 +1,35 @@
 import React from 'react'
 import CardImage from './CardImage'
-import { cardName } from '../cards'
+import "./Deck.css"
+// import { cardName } from '../cards'
 
-const Deck = ({ deck }) => {
-    const sum = (a, b) => a + b
-    // const cardQuantities = deck.get("cardQuantities").sortBy((_, code) => code)
-    return (
-        <li>
+/*
+<CardList
+    template={deck.get('template')}
+    contents={deck.get('contents')}/>
+*/
+// const CardList = ({template, contents}) => (
+//     <ul>
+//         {template.map((required, cardCode) => (
+//             <li key={cardCode}>
+//                 {contents.get(cardCode, 0)} / {required} {cardName(cardCode)}
+//             </li>
+//         )).valueSeq()}
+//     </ul>
+// )
+
+const sum = (a, b) => a + b
+
+const Deck = ({ deck }) => (
+    <li className="Deck">
+        <div className="DeckTitle">
             {deck.get("name")}
-            [{cardName(deck.get("identityCardCode"))}]
-            ({deck.get('contents').reduce(sum, 0)} / {deck.get('template').reduce(sum, 0)})
-            <CardImage cardCode={deck.get("identityCardCode")}/>
-            <ul>
-                {deck.get('template').map((required, cardCode) => (
-                    <li key={cardCode}>
-                        {deck.getIn(['contents', cardCode], 0)} / {required}
-                        &nbsp;{cardName(cardCode)}
-                    </li>
-                )).valueSeq()}
-            </ul>
-        </li>
-    )
-}
+        </div>
+        <div>
+            {deck.get('contents').reduce(sum, 0)} / {deck.get('template').reduce(sum, 0)}
+        </div>
+        <CardImage cardCode={deck.get("identityCardCode")}/>
+    </li>
+)
 
 export default Deck

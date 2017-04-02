@@ -1,6 +1,15 @@
-.card-image {
-  width: 80px;
-  height: 80px;
-  background-size: 100px;
-  background-position: -10px -16px;
+.CardImage {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+}
+
+.CardImageCorp {
+  background-size: 130px;
+  background-position: -15px -29px;
+}
+
+.CardImageRunner {
+  background-size: 130px;
+  background-position: -15px -23px;
 }

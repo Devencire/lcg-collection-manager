@@ -1,15 +1,15 @@
 import React from 'react'
-
 import Deck from "../components/Deck"
+import "./Decks.css"
 
 const Decks = ({ decks, cardsets }) => (
-    <ul>
+    <div className="Decks">
         {decks.map(deckId =>
             <Deck
                 key={deckId}
                 deck={cardsets.get(deckId)}/>
         )}
-    </ul>
+    </div>
 )
 
 export default Decks
