@@ -19,8 +19,22 @@ export const importDeck = (url) => ({
     url
 })
 
-
 export const enactRefinement = refinement => ({
     type: 'ENACT_REFINEMENT',
     ...refinement
+})
+
+export const selectCollection = collection => ({
+    type: 'SELECT_COLLECTION',
+    id: collection.get('id')
+})
+
+export const selectDeck = deck => ({
+    type: 'SELECT_DECK',
+    id: deck.get('id')
+})
+
+export const selectRefinement = refinement => ({
+    type: 'SELECT_REFINEMENT',
+    refinement
 })

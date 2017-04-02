@@ -2,7 +2,7 @@ import React from 'react'
 import EnactableRefinement from '../containers/EnactableRefinement'
 
 const Refinements = ({ cardsets, refinements }) => (
-    <ul>
+    <div>
         {refinements.map(refinement =>
             <EnactableRefinement
                 key={refinement.get('source') + refinement.get('destination')}
@@ -10,7 +10,7 @@ const Refinements = ({ cardsets, refinements }) => (
                 destination={cardsets.get(refinement.get('destination'))}
                 cards={refinement.get('cards')}/>
         )}
-    </ul>
+    </div>
 )
 
 export default Refinements

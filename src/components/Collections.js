@@ -4,13 +4,13 @@ import Collection from "./Collection"
 
 const Collections = ({ collections, cardsets }) => {
     return (
-        <ul>
+        <div>
             {collections.map(collectionId =>
                 <Collection
                     key={collectionId}
                     collection={cardsets.get(collectionId)}/>
             )}
-        </ul>
+        </div>
     )
 }
 

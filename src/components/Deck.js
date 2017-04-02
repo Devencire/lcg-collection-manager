@@ -1,27 +1,11 @@
 import React from 'react'
 import CardImage from './CardImage'
 import "./Deck.css"
-// import { cardName } from '../cards'
-
-/*
-<CardList
-    template={deck.get('template')}
-    contents={deck.get('contents')}/>
-*/
-// const CardList = ({template, contents}) => (
-//     <ul>
-//         {template.map((required, cardCode) => (
-//             <li key={cardCode}>
-//                 {contents.get(cardCode, 0)} / {required} {cardName(cardCode)}
-//             </li>
-//         )).valueSeq()}
-//     </ul>
-// )
 
 const sum = (a, b) => a + b
 
-const Deck = ({ deck }) => (
-    <li className="Deck">
+const Deck = ({ deck, selectDeck }) => (
+    <li className="Deck" onClick={selectDeck}>
         <div className="DeckTitle">
             {deck.get("name")}
         </div>
