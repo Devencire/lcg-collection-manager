@@ -41,18 +41,18 @@ const removeCards = cards => addCards(cards.map(quantity => -quantity))
 
 const cardsets = (state = startState, action) => {
     switch (action.type) {
-        case 'CREATE_COLLECTION':
-            return state.set(action.id, collection(action))
-        case 'CREATE_DECK':
-            return state.set(action.id, deck(action))
-        case 'ENACT_REFINEMENT':
-            return (
-                state
-                .update(action.source, removeCards(action.cards))
-                .update(action.destination, addCards(action.cards))
-            )
-        default:
-            return state
+    case 'CREATE_COLLECTION':
+        return state.set(action.id, collection(action))
+    case 'CREATE_DECK':
+        return state.set(action.id, deck(action))
+    case 'ENACT_REFINEMENT':
+        return (
+            state
+            .update(action.source, removeCards(action.cards))
+            .update(action.destination, addCards(action.cards))
+        )
+    default:
+        return state
     }
 }
 

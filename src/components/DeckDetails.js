@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import './DeckDetails.css'
 import { cardName } from '../cards'
 
@@ -21,4 +22,8 @@ const DeckDetails = ({deck}) => (
     </div>
 )
 
-export default DeckDetails
+const mapStateToProps = state => ({
+    deck: state.getIn(['cardsets', state.getIn(['selected', 'id'])])
+})
+
+export default connect(mapStateToProps)(DeckDetails)

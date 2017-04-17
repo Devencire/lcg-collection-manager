@@ -1,10 +1,11 @@
 import React from 'react'
-import EnactableRefinement from '../containers/EnactableRefinement'
+import { connect } from 'react-redux'
+import Refinement from '../components/Refinement'
 
 const Refinements = ({ cardsets, refinements }) => (
     <div>
         {refinements.map(refinement =>
-            <EnactableRefinement
+            <Refinement
                 key={refinement.get('source') + refinement.get('destination')}
                 source={cardsets.get(refinement.get('source'))}
                 destination={cardsets.get(refinement.get('destination'))}
@@ -13,4 +14,9 @@ const Refinements = ({ cardsets, refinements }) => (
     </div>
 )
 
-export default Refinements
+const mapStateToProps = (state) => ({
+    cardsets: state.get('cardsets'),
+    refinements: state.get('refinements')
+})
+
+export default connect(mapStateToProps)(Refinements)

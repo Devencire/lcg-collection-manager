@@ -1,16 +1,17 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import './SplitView.css'
 import Overview from './Overview'
-import SelectedDeckDetails from '../containers/SelectedDeckDetails'
+import DeckDetails from '../components/DeckDetails'
 
 const detailElement = type => {
     switch (type) {
-        case "deck":
-            return <SelectedDeckDetails />
-        case "refinement":
-            return null
-        default:
-            return null
+    case 'deck':
+        return <DeckDetails />
+    case 'refinement':
+        return null
+    default:
+        return null
     }
 }
 
@@ -21,4 +22,6 @@ const SplitView = ({selected}) => (
     </div>
 )
 
-export default SplitView
+const mapStateToProps = state => ({selected: state.get('selected')})
+
+export default connect(mapStateToProps)(SplitView)

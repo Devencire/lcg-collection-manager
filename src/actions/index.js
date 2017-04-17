@@ -1,4 +1,4 @@
-const uuid = require('uuid/v4')
+import uuid from 'uuid/v4'
 
 export const createCollection = (name, cards) => ({
     type: 'CREATE_COLLECTION',

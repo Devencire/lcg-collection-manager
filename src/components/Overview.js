@@ -1,16 +1,16 @@
 import React from 'react'
 import './Overview.css'
-import CurrentCollections from '../containers/CurrentCollections'
-import { ActiveDecks, InactiveDecks } from '../containers/DeckContainers'
-import ImportDeck from '../containers/ImportDeck'
-import SuggestedRefinements from '../containers/SuggestedRefinements'
+import Collections from '../components/Collections'
+import { ActiveDecks, InactiveDecks } from '../components/Decks'
+import ImportDeck from '../components/ImportDeck'
+import Refinements from '../components/Refinements'
 
 const Overview = () => (
     <div className="Overview">
         <div>
             <div>
                 <h3>Collections</h3>
-                <CurrentCollections />
+                <Collections />
             </div>
             <div>
                 <h3>Active Decks</h3>
@@ -22,7 +22,7 @@ const Overview = () => (
             </div>
             <div>
                 <h3>Refinements</h3>
-                <SuggestedRefinements />
+                <Refinements />
             </div>
         </div>
         <ImportDeck />

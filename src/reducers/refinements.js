@@ -18,7 +18,8 @@ const cardsMissingFromCardset = cardset => (
 const cardsWorthTransferringBetween = (source, destination) => {
     const missing = cardsMissingFromCardset(destination)
     return (
-        missing.map((qty, code) => Math.min(qty, source.getIn(['contents', code], 0)))
+        missing.map((qty, code) =>
+            Math.min(qty, source.getIn(['contents', code], 0)))
         .filter(qty => qty > 0)
     )
 }

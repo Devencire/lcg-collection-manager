@@ -1,16 +1,6 @@
 import React from 'react'
-
-// import { cardName } from '../cards'
-
-/*
-<div>
-    {cards.map((v, k) => (
-        <div key={k}>
-            {v} {cardName(k)}
-        </div>
-    )).valueSeq()}
-</div>
-*/
+import { connect } from 'react-redux'
+import { enactRefinement } from '../actions'
 
 const Refinement = ({source, destination, cards, enactRefinement}) => (
     <div onClick={enactRefinement}>
@@ -19,4 +9,14 @@ const Refinement = ({source, destination, cards, enactRefinement}) => (
     </div>
 )
 
-export default Refinement
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    enactRefinement: () => {
+        dispatch(enactRefinement({
+            source: ownProps.source.get('id'),
+            destination: ownProps.destination.get('id'),
+            cards: ownProps.cards
+        }))
+    }
+})
+
+export default connect(null, mapDispatchToProps)(Refinement)

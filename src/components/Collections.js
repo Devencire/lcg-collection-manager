@@ -1,6 +1,6 @@
 import React from 'react'
-
-import Collection from "./Collection"
+import { connect } from 'react-redux'
+import Collection from './Collection'
 
 const Collections = ({ collections, cardsets }) => {
     return (
@@ -14,4 +14,9 @@ const Collections = ({ collections, cardsets }) => {
     )
 }
 
-export default Collections
+const mapStateToProps = (state) => ({
+    collections: state.getIn(['sections', 'collections']),
+    cardsets: state.get('cardsets')
+})
+
+export default connect(mapStateToProps)(Collections)
