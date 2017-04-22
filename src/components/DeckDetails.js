@@ -1,17 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import './DeckDetails.css'
-import { cardName } from '../cards'
-
-const CardList = ({template, contents}) => (
-    <ul>
-        {template.map((required, cardCode) => (
-            <li key={cardCode}>
-                {contents.get(cardCode, 0)} / {required} {cardName(cardCode)}
-            </li>
-        )).valueSeq()}
-    </ul>
-)
+import CardList from './CardList.js'
 
 const DeckDetails = ({deck}) => (
     <div className="DeckDetails">

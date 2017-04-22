@@ -18,7 +18,9 @@ const detailElement = type => {
 const SplitView = ({selected}) => (
     <div className="Main">
         <Overview />
-        {detailElement(selected.get('type'))}
+        <div className="Main-DetailElement">
+            {detailElement(selected.get('type'))}
+        </div>
     </div>
 )
 
