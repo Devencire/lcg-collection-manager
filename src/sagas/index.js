@@ -1,8 +1,7 @@
-import { call, put, takeEvery, select } from 'redux-saga/effects'
+import { call, put, takeEvery } from 'redux-saga/effects'
 import { createDeck } from '../actions'
 
 const createDeckFromNRDBData = (data) => {
-    console.log(data)
     return createDeck(data.name, data.cards)
 }
 
@@ -22,19 +21,16 @@ const fetchDeckFromURL = (url) => {
 }
 
 function* importDeck(action) {
-    console.log(action)
-    const state = yield select()
-    console.log("importDeck", state)
     try {
         const createAction = yield call(fetchDeckFromURL, action.url)
         yield put(createAction)
     } catch (e) {
-        yield put({type: "IMPORT_DECK_FAILURE", exception: e})
+        yield put({type: 'IMPORT_DECK_FAILURE', exception: e})
     }
 }
 
 function* importDeckSaga() {
-    yield takeEvery("IMPORT_DECK", importDeck)
+    yield takeEvery('IMPORT_DECK', importDeck)
 }
 
 const sagas = [importDeckSaga]

@@ -1,3 +1,6 @@
+/* eslint-env node */
+/*eslint no-console: "off"*/
+
 const fs = require('fs')
 const process = require('process')
 
@@ -8,7 +11,7 @@ const outFile = process.argv[2]
 const prefix = name => 'pack_' + name
 const buildImportString = name => (
     'import { default as ' + prefix(name) +
-    ' } from "json-data/pack/' + name + '.json"'
+    ' } from \'json-data/pack/' + name + '.json\''
 )
 
 const packFiles = fs.readdirSync('node_modules/json-data/pack')

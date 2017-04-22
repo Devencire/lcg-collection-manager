@@ -32,3 +32,6 @@ rules:
   react/prop-types:
     - error
     - skipUndeclared: true
+  no-unused-vars:
+    - error
+    - varsIgnorePattern: ^_$

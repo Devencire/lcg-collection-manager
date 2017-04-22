@@ -1,3 +1,5 @@
+/* eslint-env jest */
+
 import Immutable from 'immutable'
 
 import { createCollection } from './index'

@@ -9,7 +9,10 @@ const selected = (state = startState, action) => {
     case 'SELECT_DECK':
         return Immutable.Map({type: 'deck', id: action.id})
     case 'SELECT_REFINEMENT':
-        return Immutable.Map({type: 'refinement', refinement: action.refinement})
+        return Immutable.Map({
+            type: 'refinement',
+            refinement: action.refinement
+        })
     default:
         return state
     }
