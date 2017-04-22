@@ -31,6 +31,13 @@ const deck = ({id, name, cards}) => Immutable.fromJS({
     contents: {}
 })
 
+const addCardsToTemplate = cards => cardset => (
+    cardset.update('template', template => template.mergeWith(
+        (current, additional) => current + additional,
+        cards
+    ))
+)
+
 const addCards = cards => cardset => (
     cardset.update('contents', contents => contents.mergeWith(
         (current, additional) => current + additional,
@@ -45,6 +52,12 @@ const cardsets = (state = startState, action) => {
         return state.set(action.id, collection(action))
     case 'CREATE_DECK':
         return state.set(action.id, deck(action))
+    case 'MODIFY_COLLECTION_CARDS':
+        return (
+            state
+            .update(action.id, addCardsToTemplate(action.cards))
+            .update(action.id, addCards(action.cards))
+        )
     case 'ENACT_REFINEMENT':
         return (
             state

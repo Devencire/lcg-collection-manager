@@ -19,6 +19,12 @@ export const importDeck = (url) => ({
     url
 })
 
+export const addToCollection = (cardset, cards) => ({
+    type: 'MODIFY_COLLECTION_CARDS',
+    id: cardset.get('id'),
+    cards
+})
+
 export const enactRefinement = refinement => ({
     type: 'ENACT_REFINEMENT',
     ...refinement

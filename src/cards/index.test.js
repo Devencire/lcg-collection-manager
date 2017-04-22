@@ -1,8 +1,8 @@
-import { cardsInPack } from './index'
+import { cardsInPack, quantitiesOfCards } from './index'
 
 describe('cardsInPack', () => {
-    it('should return all cards in the core set', () => {
-        let cardCodes = cardsInPack('core')
+    it('should provide quantities for all cards in the core set', () => {
+        let cardCodes = quantitiesOfCards(cardsInPack('core'))
         // 113 unique cards
         expect(Object.values(cardCodes).length).toEqual(113)
         // 248 cards
